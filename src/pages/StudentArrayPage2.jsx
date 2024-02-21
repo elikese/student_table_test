@@ -7,7 +7,9 @@ function StudentArrayPage2() {
         score: 0
     });
 
-    const [ scoreData, setScoreData] = useState({
+    const [ stateFlag , setStateFlag ] = useState(false);
+
+    const [ scoreData, setScoreData ] = useState({
         total: 0,
         avg: 0
     });
@@ -15,12 +17,14 @@ function StudentArrayPage2() {
     const [ studentList, setStudentList ] = useState([]);
 
     useEffect(()=>{
-        let sum = 0;
-        let average = 0;
-        studentList.forEach(student => sum += parseInt(student.score))
-        average=(sum/studentList.length).toFixed(2);
-        const newScoreData = {total: sum, avg:average}
-        setScoreData(newScoreData);
+        if(stateFlag) {
+            let sum = 0;
+            studentList.forEach(student => sum += parseInt(student.score))
+            let average=(sum/studentList.length).toFixed(2);
+            const newScoreData = {total: sum, avg:average}
+            setScoreData(newScoreData);
+        }
+        setStateFlag(true);
     },[studentList]);
 
     const [ updateId, setUpdateId ] = useState(0);
@@ -34,6 +38,7 @@ function StudentArrayPage2() {
 
     const handleAddClick = () => {
         setStudentList([...studentList, {...inputValue, id: staticId.current}])
+        setUpdateId(staticId.current);
         staticId.current += 1
     }
 
