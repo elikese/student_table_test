@@ -1,8 +1,8 @@
 import './App.css';
-import StudentArrayPage2 from './pages/StudentArrayPage2';
+import Memoization from './pages/Memoization';
 function App() {
   return (
-    <StudentArrayPage2/>
+    <Memoization />
   );
 }
 
