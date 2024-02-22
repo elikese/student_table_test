@@ -6,6 +6,8 @@ import StudentArrayPage from './pages/StudentArrayPage';
 import StudentArrayPage2 from './pages/StudentArrayPage2';
 import Params from './pages/Params';
 import { useState } from 'react';
+import SearchPage from './pages/SearchPage';
+import ProductPage from './pages/ProductPage';
 
 function App() {
   const [value, setValue] = useState("");
@@ -13,12 +15,18 @@ function App() {
   return (
     <>
       <input type="text" onChange={(e) => setValue(e.target.value)} />
+      <Link to={`/books?bookName=${value}`}>
+        <button>책이름으로 검색</button>
+      </Link>
+
+
       <ul>
         <Link to={'/memoization'}><li>메모이제이션</li></Link>
         <Link to={'/st'}><li>학생정보</li></Link>
         <Link to={'/sta1'}><li>학생들정보1</li></Link>
         <Link to={'/sta2'}><li>학생들정보3</li></Link>
         <Link to={`/p?data=${value}`}><li>파람스</li></Link>
+        <Link to={`/books?bookName=${value}`}><li>책이름으로 검색</li></Link>
       </ul>
       <Routes>
         <Route path='/memoization' element={<Memoization />} />
@@ -26,6 +34,8 @@ function App() {
         <Route path='/sta1' element={<StudentArrayPage />} />
         <Route path='/sta2' element={<StudentArrayPage2 />} />
         <Route path='/p' element={<Params />} />
+        <Route path='/books' element={<SearchPage />} />
+        <Route path='/product/:productId' element={<ProductPage />} />
       </Routes>
     </>
   );

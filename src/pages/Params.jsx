@@ -1,8 +1,11 @@
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-function Params(props) {
-  const [params, setParams] = useSearchParams();
+function Params() {
+  // params => url에 데이터담아오는 형태
+  // useSearchParams => /Url?key=value 형태. params.get("key")로 value 가져옴
+  const params = useSearchParams();
+
 
   console.log(params.get("data"));
   const data = params.get("data");
