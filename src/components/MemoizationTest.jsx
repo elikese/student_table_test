@@ -6,7 +6,7 @@ function MemoizationTest({ num1, num2 }) {
 
     console.log("MemoizationTest 렌더링");
 
-    // Memoization - value / function 두가지 있음/ return으로 value나 function을 뱉음
+    // Memoization - value(useMemo) / function(useCallback) 두가지 있음/ return으로 value나 function을 뱉음(return값 변수에 대입)
 
     // Memoization - value(dependency로 인해 선택적으로 재랜더링가능)
     // props 중 num1이 바뀌면 num2의 값은 재랜더링 되지 않음
