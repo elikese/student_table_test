@@ -11,6 +11,7 @@ function MemoizationTest({ num1, num2 }) {
     // Memoization - value(dependency로 인해 선택적으로 재랜더링가능)
     // props 중 num1이 바뀌면 num2의 값은 재랜더링 되지 않음
     // num3가 변해도 props로 전달받은 값이 재랜더링 되지 않음
+
     const tempNum1 = useMemo(() => {
         console.log("memo: num1");
         return num1 * 10;
@@ -27,8 +28,6 @@ function MemoizationTest({ num1, num2 }) {
         console.log("memo: num4");
         return num1 + num2;
     }, [num1, num2]);
-
-
 
     return (
         <>
